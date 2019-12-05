@@ -1,0 +1,38 @@
+
+extends common.pug
+block content
+    link(rel='stylesheet', href='/styles/login.css')
+    .login-form
+        form(action='/login', method='post')
+            h2.text-center Sign in
+            if error
+                p.text-center.errorLogin Please check your email and password.
+            .form-group
+                i.fa.fa-user
+                input.form-control(type='text', name='username', placeholder='Username', required='required')
+            .form-group
+                i.fa.fa-lock
+                input.form-control(type='password', name='password', placeholder='Password', required='required')
+            .form-group
+                button.btn.btn-primary.login-btn.btn-block(type='submit') Sign in
+            .clearfix
+                label.pull-left.checkbox-inline
+                    input(type='checkbox')
+                    |  Remember me
+                a.pull-right(href='#') Forgot Password?
+            .or-seperator
+                i or
+            p.text-center Login with your social media account
+            .text-center.social-btn
+                a.btn.btn-primary(href='#')
+                    i.fa.fa-facebook
+                    | Facebook
+                a.btn.btn-info(href='#')
+                    i.fa.fa-twitter
+                    | Twitter
+                a.btn.btn-danger(href='#')
+                    i.fa.fa-google
+                    | Google
+        p.text-center.text-muted.small
+            | Don&apos;t have an account? 
+            a(href='/signup') Sign up here!

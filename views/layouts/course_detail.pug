@@ -1,0 +1,118 @@
+extends common.pug
+block content
+    link(rel='stylesheet', href='/styles/course_detail.css')
+    link(rel='stylesheet', href='/styles/home_user.css')
+    nav.navbar.navbar-default.navbar-expand-xl.navbar-light
+        .navbar-header.d-flex.col
+            a.navbar-brand(href='/home')
+                i.fa.fa-cube
+                b BK
+                | Elearning
+            button.navbar-toggle.navbar-toggler.ml-auto(type='button', data-target='#navbarCollapse', data-toggle='collapse')
+                span.navbar-toggler-icon
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+        // Collection of nav links, forms, and other content for toggling
+        #navbarCollapse.collapse.navbar-collapse.justify-content-start
+            ul.nav.navbar-nav
+                li.nav-item.active
+                    a.nav-link(href='/home') Home
+                li.nav-item
+                    a.nav-link(href='#') About
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Services 
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='#') Web Design
+                        li
+                            a.dropdown-item(href='#') Web Development
+                        li
+                            a.dropdown-item(href='#') Graphic Design
+                        li
+                            a.dropdown-item(href='#') Digital Marketing
+                li.nav-item
+                    a.nav-link(href='#') Blog
+                li.nav-item
+                    a.nav-link(href='#') Contact
+            form.navbar-form.form-inline(action='/courses/search', method='post')
+                .input-group.search-box
+                    input#search.form-control(name = "key",type='text', placeholder='Search by Name')
+                    span.input-group-addon
+                        i.fa.fa-search
+            ul.nav.navbar-nav.navbar-right.ml-auto
+                
+                li.nav-item
+                    a.nav-link.messages(href='/cart')
+                        i.fa.fa-cart-plus
+                        span.badge= num
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle.user-action(href='#', data-toggle='dropdown')
+                        img.avatar(src=user.linkImg, alt='Avatar')
+                        = user.name
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='/profile')
+                                i.fa.fa-user-o
+                                |  Profile
+                        li
+                            a.dropdown-item(href='/change_password')
+                                i.fa.fa-lock
+                                |  Change Password
+                        li
+                            a.dropdown-item(href='#')
+                                i.fa.fa-sliders
+                                |  Settings
+                        li.divider.dropdown-divider
+                        li
+                            a.dropdown-item(href='/logout')
+                                i.fa.fa-sign-out
+                                |  Logout
+    .header
+        .container-fluid
+            .row
+                .i.fa.fa-home
+                h4  / Course Detail
+
+    
+    .course-detail
+        .container-fluid
+            .row
+                .col-lg-12
+                    if success
+
+                        #success-alert.alert.alert-success
+                            button.close(type='button', data-dismiss='alert') x
+                            strong Success! 
+                            |  You have successfully added. Please check your cart.
+                    else if error
+
+                        #success-alert.alert.alert-danger
+                            button.close(type='button', data-dismiss='alert') x
+                            strong Warning! 
+                            |  Course already in cart.
+                .col-lg-3
+                    .card(style='width: 18rem;')
+                            .lammo.card-img-top
+                                img.card-img-top(src=result.linkImg, alt='')
+                            .card-body
+                                .text 
+                                    strong= "Price:  $"+result.price
+                                a.btn.btn-lg.btn-block(href='/Add_Cart/'+result.courseID) Add to Cart
+
+                .col-lg-9
+                    .row
+                        .col-lg-9
+                            h2= result.title
+                            h5= result.description
+                            h6= result.numStudent+ " students enrolled."
+                            
+
+
+
+
+                                    
+                

@@ -1,0 +1,44 @@
+.header{
+    background: rgb(67, 193, 231);
+    padding:30px 0;
+    color:white
+}
+
+.header .fa-home{
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.course-detail{
+    padding:30px 0;
+    background-color: #505763;
+    color:white
+}
+
+.course-detail .row{
+    padding:10px;
+}
+
+.course-detail .row .col-lg-3 .text{
+    color: #ec5252;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.course-detail .row .col-lg-9 h2{
+    color: white;
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+
+
+
+.course-detail .row a{
+    text-decoration: none;
+}
+
+.course-detail .row .btn{
+    background-color: #ec5252 !important;
+    color:white
+}

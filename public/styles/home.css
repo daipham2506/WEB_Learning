@@ -1,0 +1,241 @@
+
+/* .modal-login {		
+    color: #636363;
+    width: 500px;
+}
+.modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.modal-login .modal-header {
+    border-bottom: none;   
+    position: relative;
+    justify-content: center;
+}
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+}
+.modal-login .form-control:focus {
+    border-color: #70c5c0;
+}
+.modal-login .form-control, .modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}	
+.modal-login .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    justify-content: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.modal-login .modal-footer a {
+    color: #999;
+}		
+.modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #60c7c1;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-login .avatar img {
+    width: 100%;
+}
+.modal-login.modal-dialog {
+    margin-top: 80px;
+}
+.modal-login  .form-group {
+    position: relative;
+}
+.modal-login i {
+    position: absolute;
+    left: 13px;
+    top: 11px;
+    font-size: 18px;
+}
+.modal-login .form-control {
+    padding-left: 40px;
+}
+.modal-login .form-control:focus {
+    border-color: #00ce81;
+}
+.modal-login .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #60c7c1;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+    background: #45aba6;
+    outline: none;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+} */
+
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    color: #333333;
+}
+
+nav.navbar a.cach {
+    margin-left: 500px ;
+}
+nav.navbar button.btn.log{
+    margin-left: 20px ;
+}
+nav.navbar .collapse form.form-inline input.form-control{
+    width: 400px ;
+}
+
+
+
+.banner{
+    align-items: center;
+    height: 500px;
+    background: url(https://i.udemycdn.com/notices/home_banner/image/33c440fc-10f2-4bf4-b4b1-369940e16139.jpg);
+    background-size: cover;
+    padding-top:200px;
+    padding-left:70px;
+    color: white;
+}
+
+.detail_learning{
+    width: 100%;
+    display: flex;
+    height: 95px;
+    align-items: center;
+    color: white;
+    border: none;
+    background: linear-gradient(-45deg,#EC5252 0%,#6E1A52 100%);
+}
+.detail_learning .khoinho{
+    width:33%;
+    display: flex;
+    padding-left:110px;
+}
+
+.detail_learning .khoinho .text{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.chung{
+    padding-left:50px;
+    padding-bottom: 30px;
+    
+}
+.chung .col-lg-3 a{
+    text-decoration: none;
+    
+}
+
+.chung .container-fluid .row .col-lg-3 .card .lammo{
+    position: relative;
+}
+
+.chung .container-fluid .row .col-lg-3 .card .black_bg{
+    position: absolute;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background: rgba(116, 215, 240, 0.548);
+    opacity: 0;
+    transition: 0.5s;
+}
+.chung .container-fluid .row .col-lg-3 .card:hover .black_bg
+{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.chung.student_viewing{
+    background: #eeeded;
+}
+.chung .container-fluid h3{
+    padding-top: 20px;
+}
+.chung .container-fluid .row .col-lg-3 {
+    padding-top:20px;
+}
+.chung .container-fluid .row .col-lg-3 .card .text{
+    margin-bottom: 20px;
+}
+.chung .container-fluid .row .col-lg-3 .card .text strong{
+    margin-left:120px;
+}
+
+.category a .icon {
+    margin: auto;
+    width: 55px;
+    height: 55px;
+}
+.category a .text {
+    height: 45px;
+    display: block;
+    font-weight: 700;
+    padding: 0 5px;
+    color: #333333;
+}
+.category .col-lg-2{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+.category a{
+    text-decoration: none;
+}
+.category .col-lg-2:hover{
+    background: #7eabe6;
+    transition: 0.4s;
+}
+
+.category{
+    padding-top:20px ;
+    padding-bottom: 20px;
+}
+
+.category .col-lg-2{
+    margin-top:10px ;
+    margin-bottom: 20px;
+}
+
+.footer{
+    background: #eeeded;
+    padding-top:15px;
+    display: block;
+}
+
+.footer a{
+    padding-left:30px;
+    
+    text-decoration: none;
+}
+
+.modal-dialog .modal-content p.errorLogin{
+    padding:10px;
+    margin:15px;
+    background: rgba(255, 0, 0, 0.384);
+}

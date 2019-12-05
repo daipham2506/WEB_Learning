@@ -1,0 +1,25 @@
+extends common.pug
+block content
+    link(rel='stylesheet', href='/styles/signup.css')
+
+    .signup-form
+        form(action='/change_pass', method='post')
+            h2 Change Password
+
+            if error
+                p.text-center.errorSignup= error
+            else if success
+                p.text-center.successSignup= success
+            .form-group
+                input.form-control(type='text', name='username', placeholder='Username', required='required')
+            .form-group
+                input.form-control(type='password', name='old_password', placeholder='Old Password', required='required')
+            .form-group
+                input.form-control(type='password', name='new_password', placeholder='New Password', required='required')
+            .form-group
+                input.form-control(type='password', name='confirm_password', placeholder='Confirm Password', required='required')
+            
+            .form-group
+                button.btn.btn-success.btn-lg.btn-block.signup-btn(type='submit') Change
+        .text-center
+            a(href='/home/') Go to Home

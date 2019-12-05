@@ -1,0 +1,138 @@
+extends common.pug
+block content
+    link(rel='stylesheet', href='/styles/shopping_cart.css')
+    link(rel='stylesheet', href='/styles/home_user.css')
+    nav.navbar.navbar-default.navbar-expand-xl.navbar-light
+        .navbar-header.d-flex.col
+            a.navbar-brand(href='/home')
+                i.fa.fa-cube
+                b BK
+                | Elearning
+            button.navbar-toggle.navbar-toggler.ml-auto(type='button', data-target='#navbarCollapse', data-toggle='collapse')
+                span.navbar-toggler-icon
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+        // Collection of nav links, forms, and other content for toggling
+        #navbarCollapse.collapse.navbar-collapse.justify-content-start
+            ul.nav.navbar-nav
+                li.nav-item.active
+                    a.nav-link(href='/home') Home
+                li.nav-item
+                    a.nav-link(href='#') About
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(data-toggle='dropdown', href='#')
+                        | Services 
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='#') Web Design
+                        li
+                            a.dropdown-item(href='#') Web Development
+                        li
+                            a.dropdown-item(href='#') Graphic Design
+                        li
+                            a.dropdown-item(href='#') Digital Marketing
+                li.nav-item
+                    a.nav-link(href='#') Blog
+                li.nav-item
+                    a.nav-link(href='#') Contact
+            form.navbar-form.form-inline(action='/courses/search', method='post')
+                .input-group.search-box
+                    input#search.form-control(name = "key",type='text', placeholder='Search by Name')
+                    span.input-group-addon
+                        i.fa.fa-search
+            ul.nav.navbar-nav.navbar-right.ml-auto
+                
+                li.nav-item
+                    a.nav-link.messages(href='/cart')
+                        i.fa.fa-cart-plus
+                        span.badge= num
+                li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle.user-action(href='#', data-toggle='dropdown')
+                        img.avatar(src=user.linkImg, alt='Avatar')
+                        = user.name
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a.dropdown-item(href='/profile')
+                                i.fa.fa-user-o
+                                |  Profile
+                        li
+                            a.dropdown-item(href='/change_password')
+                                i.fa.fa-lock
+                                |  Change Password
+                        li
+                            a.dropdown-item(href='#')
+                                i.fa.fa-sliders
+                                |  Settings
+                        li.divider.dropdown-divider
+                        li
+                            a.dropdown-item(href='/logout')
+                                i.fa.fa-sign-out
+                                |  Logout
+    
+    .header
+        .container
+            .row
+                .i.fa.fa-home
+                h4  / Shopping Cart
+    
+    .cart-detail
+        .container 
+            //- .row  
+            //-     .col-lg-6
+            //-         h4.modal-title Are you sure?
+            //-         p Do you really want to delete this course? This process cannot be undone.
+            //-         button.btn.btn-info(type='button', data-dismiss='modal') Cancel
+            //-         a(href="/remove_cart/")
+            //-             button.btn.btn-danger(type='button') Delete
+            h4= num+" Courses in Cart" 
+            .row
+                .col-lg-9
+                    each item in cart
+                        .row
+                            .col-lg-3
+                                img(src=item.linkImg alt="Image course")
+                            .col-lg-7
+                                b= item.title
+                                p= item.description
+                            .col-lg-1
+                                h4="$"+item.price
+
+                            .col-lg-1
+                                a(href="/remove_cart/"+item.courseID )
+                                    i.fa.fa-trash
+                        
+                            //- #myModal.modal.fade
+                            //-     .modal-dialog.modal-confirm
+                            //-         .modal-content
+                            //-             .modal-header
+                            //-                 //- .icon-box
+                            //-                 //-     i.material-icons &#xE5CD;
+                            //-                 h4.modal-title Are you sure?
+                            //-                 button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                            //-             .modal-body
+                            //-                 p Do you really want to delete this course? This process cannot be undone.
+                            //-             .modal-footer
+                            //-                 button.btn.btn-info(type='button', data-dismiss='modal') Cancel
+                            //-                 a(href="/remove_cart/"+item.courseID)
+                            //-                     button.btn.btn-danger(type='button') Delete
+
+                                    
+                .col-lg-3
+                    h5 Total:
+                    
+                    if num > 1
+                        h1= "$"+(total*0.9)
+                        strike="$"+total
+                        p 10% off
+                    else
+                        h1= "$"+total
+
+
+                    button.btn.btn-lg.btn-block( type='button') Checkout
+
+
+
+

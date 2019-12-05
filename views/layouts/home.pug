@@ -1,0 +1,190 @@
+
+extends common.pug
+block content
+    link(rel='stylesheet', href='/styles/home.css')
+    
+    // Modal login
+
+    #ModalLogin.modal.fade
+        .modal-dialog.modal-login.modal-lg
+            .modal-content
+                .modal-header
+                    .avatar
+                        img(src='https://www.tutorialrepublic.com/examples/images/avatar.png', alt='Avatar')
+                    h4.modal-title Member Login
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                p.text-center.errorLogin Please check your email and password.
+                .modal-body
+                    form(action='/login', method='post')
+                        .form-group
+                            i.fa.fa-user
+                            input.form-control(type='text', name='username', placeholder='Username', required='required')
+                        .form-group
+                            i.fa.fa-lock
+                            input.form-control(type='password', name='password', placeholder='Password', required='required')
+                        .form-group
+                            button.btn.btn-primary.btn-lg.btn-block.login-btn(type='submit') Login
+                .modal-footer
+                    a(href='#') Forgot Password?
+
+    // Modal register
+
+    #ModalSignup.modal.fade
+        .modal-dialog.modal-login.modal-lg
+            .modal-content
+                .modal-header
+                    .avatar
+                        img(src='https://www.tutorialrepublic.com/examples/images/avatar.png', alt='Avatar')
+                    h4.modal-title Member Sign Up
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                .modal-body
+                    form(action='/signup', method='post')
+                        
+                        .form-group
+                            i.fa.fa-user
+                            input.form-control(type='text', name='username', placeholder='Username', required='required')
+                        .form-group
+                            i.fa.fa-lock
+                            input.form-control(type='password', name='password', placeholder='Password', required='required')
+                        .form-group
+                            i.fa.fa-address-card
+                            input.form-control(type='text', name='name', placeholder='Full Name', required='required')
+                        .form-group
+                            i.fa.fa-envelope
+                            input.form-control(type='email', name='email', placeholder='Email', required='required')
+                        .form-group
+                            i.fa.fa-phone
+                            input.form-control(type='phone', name='phone', placeholder='Phone Number', required='required')
+                        .form-group
+                            button.btn.btn-primary.btn-lg.btn-block.login-btn(type='submit') Sign Up
+                
+
+
+
+
+    // navbar
+    nav.navbar.navbar-expand-sm.fixed-top.navbar-light.bg-light
+        a.navbar-brand(href='/') Elearning
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item.active
+                    a.nav-link(href='#')
+                        | Home 
+                        span.sr-only (current)
+                li.nav-item
+                    a.nav-link(href='#') Link
+                li.nav-item.dropdown
+                    a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        | Dropdown
+                    .dropdown-menu(aria-labelledby='navbarDropdown')
+                        a.dropdown-item(href='#') Action
+                        a.dropdown-item(href='#') Another action
+                        .dropdown-divider
+                        a.dropdown-item(href='#') Something else here
+            form.form-inline.my-2.my-lg-1
+                input.form-control.mr-sm-2(type='search', placeholder='What do you want to learn?', aria-label='Search')
+                button.btn.btn-outline-success.my-2.my-sm-0(type='submit')
+                    .fa.fa-search
+ 
+        a.cach(href='/login') 
+            button.btn.btn-outline-info(type='button') Log In
+        a(href='/signup') 
+            button.log.btn.btn-success(type='button') Sign Up
+            
+        //- a.cach(href='#ModalLogin', data-toggle='modal') 
+        //-     button.btn.btn-outline-info(type='button', data-toggle="modal") Log In
+        //- a(href='#ModalSignup', data-toggle='modal') 
+        //-     button.log.btn.btn-success(type='button', data-toggle="modal") Sign Up
+
+    //banner
+    .banner
+        h1 We have the best 
+        h1 programming courses for you
+
+    .detail_learning
+
+        .khoinho
+            img(src='/images/more_course.PNG', alt='')
+            .text
+                h5 More than 100 online courses
+                p Explore a variety of fresh topics 
+        .khoinho
+            img(src='/images/expert_instruct.PNG', alt='')
+            .text
+                h5 Expert instruction
+                p Find the right instructor for you 
+        .khoinho
+            img(src='/images/life_time.PNG', alt='')
+            .text
+                h5 Lifetime access
+                p Learn on your schedule 
+
+    .student_viewing.chung
+        
+        .container-fluid
+            h3 The most popular courses
+            .row.text-center
+                each item in result
+                    .col-lg-3
+                        .card(style='width: 18rem;')
+                            .lammo.card-img-top
+                                img.card-img-top(src=item.linkImg, alt='')
+                                .black_bg
+                            .card-body
+                                h5.card-title= item.title
+                                p.card-text= item.description
+                                .text 
+                                    strike= "$199.99"
+                                    strong= "$"+item.price
+                                a.btn.btn-primary(href='#') Add to cart
+                
+
+    .category
+        .container.text-center
+            h1 Top categories
+            .row
+                .col-lg-2
+                    a(href='/danh-sach-khoa-hoc', title='Tất cả khóa học')
+                        span.text All Courses
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/65/img/home_icon-1528365865.png', alt='')
+                .col-lg-2
+                    a(href='/khuyen-mai/nhom-khoa-hoc', title='Khóa học combo')
+                        span.text Combo Courses
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/66/img/home_icon-1528365912.png', alt='')
+                .col-lg-2
+                    a(href='/danh-sach-khoa-hoc/it-va-lap-trinh', title='IT và lập trình')
+                        span.text IT & Software
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/20/img/home_icon-1528366107.png', alt='')
+                .col-lg-2
+                    a(href='/danh-sach-khoa-hoc/phat-trien-ca-nhan', title='Phát triển cá nhân')
+                        span.text Personal Develope
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/37/img/home_icon-1528366252.png', alt='')
+                .col-lg-2
+                    a(href='/danh-sach-khoa-hoc/thiet-ke-do-hoa-va-video', title='Thiết kế, đồ họa và video')
+                        span.text Design & Video
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/39/img/home_icon-1528366098.png', alt='')
+
+                .col-lg-2
+                    a(href='/danh-sach-khoa-hoc/hr-phat-trien-nguon-luc', title='HR - Phát triển nguồn lực')
+                        span.text Human Resourse
+                        img.icon(src='https://media-kyna.cdn.vccloud.vn/uploads/categories/91/img/home_icon-1528366212.png', alt='')
+
+                
+
+    .footer
+        .container-fluid
+            .row
+                .col-lg-4.text-center
+                    p  Copyright © 2019 Elearning, Inc.
+                .col-lg-4
+                .col-lg-4.text-center
+                    a(href='') Term
+                    a(href='') Privacy Policy and Cookie Policy
+
+
+
+            
+
+
